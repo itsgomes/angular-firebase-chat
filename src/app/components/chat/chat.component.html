@@ -1,0 +1,14 @@
+<div class="chat-container">
+  <div class="messages" #messagesContainer>
+    <div *ngFor="let message of messages">
+      <div class="message">
+        {{ message.text }}
+        <span class="message-date">{{message.createdAt | date}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="input-container">
+    <input type="text" [(ngModel)]="message" (keydown.enter)="sendMessage()">
+    <button (click)="sendMessage()" [disabled]="!message">Send</button>
+  </div>
+</div>
